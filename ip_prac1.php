@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simple form</title>
+
+<meta charset="utf-8">
+<meta name="Author" content="Balkrishna shah">
+<meta name="Description" content="First IP practical">
+</head>
+<body>
+	
+	<h1 align="center">Membership Form</h1>
+	<br><br>
+
+	
+
+	<form method="POST" action="memconnect.php">
+
+		
+	<select name=cboStud > 
+		
+	<?php include 'memcon.php'; ?>
+
+	<?php   	
+	$sql = "SELECT * FROM Members";
+        $result = $conn->query($sql);
+            while($row = $result->fetch_array())
+		{                                                 
+            		
+            		echo "<option value='".$row[id]."'>".$row[firstname]."</option>";
+            		
+        
+       }
+
+		?>
+
+		</select>
+ 
+
+	<br><br><br><br>
+		<label>First Name :</label>
+		<input type="text" name="fname" id="fname"  placeholder="Enter your First Name" required>
+
+		<br>
+		<br>
+		<label>Last Name :</label>
+		<input type="text" name="lname" id="lname" placeholder="Enter your Last Name" required/>
+		<br>
+		<br>
+
+		<!-- <label>Address :</label> -->
+		<label>Address : </label> 
+		<!-- <input type="text" name="address" height="50" width="60" required> -->
+
+		<textarea name="address" rows="2" cols="30" required></textarea>
+		<br>
+		<br>
+		<label>Gender : </label><br> <br>
+		<input type="radio" name="gender" id="g1" value="Male">Male</input>
+		<input type="radio" name="gender" id="g2" value="Female">Female</input>
+		<br><br>
+		<label>Department: </label>
+
+		<select  title="select your department" name="department"> 
+		<option name="department" >Information Technology</option>
+		<option name="department" >Computer Science</option>
+		<option name="department" >EXTC</option>
+		<option name="department" >INST</option>
+		<option name="department" >MECH</option>
+		</select>
+
+
+		<br><br>
+
+		<label>Email :  </label>
+		<input type="text" name="email"><br><br>
+
+		<label>Contact Number : </label>
+		<select title="code">
+			<option>+91</option>
+			<option>+1</option>
+			<option>+721</option>
+			<option>+355</option>
+			<option>+54</option>
+		</select>
+
+		<input type="text" name="phnno" id="phnno"/>
+		<br><br>
+		<br>
+		
+		<button>ADD</button>
+		<button>MODIFY</button>
+		<button>DELETE</button>
+		<br><br>
+		<input type="Submit" name="submit" value="SUBMIT">
+
+	</form>
+	
+</body>
+</html>
